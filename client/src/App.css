@@ -1,0 +1,83 @@
+:root {
+    --light-gray: #F8F9FA;
+    --light-gray-hover: #a2a5a8;
+    --text-color: #333333;
+    --btn-color: #4F46E5;
+    --btn-hover: #221e71;
+    /* --green: #F97316; */
+    --green: #10B981;
+    --green-hover: #04573b;
+    --home-btn: #4F46E5;
+}
+
+/* Header + Nav */
+header {
+    height: 10vh;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    background-color: var(--light-gray);
+    position: sticky;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+    font-size: 1.2rem;
+}
+
+nav a {
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+nav p,
+a {
+    color: var(--text-color);
+}
+
+.btn {
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.login-btn {
+    background-color: var(--btn-color);
+    color: var(--light-gray);
+}
+
+.signup-btn {
+    background-color: var(--green);
+    color: var(--light-gray);
+}
+
+.home-btn {
+    border: 1px solid var(--text-color);
+}
+
+/* BTN hover */
+
+.login-btn:hover {
+    background-color: var(--btn-hover);
+    transition: 0.3s;
+}
+
+.signup-btn:hover {
+    background-color: var(--green-hover);
+    transition: 0.3s
+}
+
+.home-btn:hover {
+    background-color: var(--light-gray-hover);
+    border: 1px solid var(--light-gray-hover);
+    transition: 0.3s;
+}
+
+
+nav .title:hover {
+    border-bottom: 2px solid var(--btn-color);
+    transition: 0.3s;
+    cursor: pointer;
+}
