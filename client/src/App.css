@@ -1,11 +1,12 @@
 :root {
     --light-gray: #F8F9FA;
-    --light-gray-hover: #a2a5a8;
     --text-color: #333333;
     --btn-color: #4F46E5;
-    --btn-hover: #221e71;
-    /* --green: #F97316; */
+    --navy: #1E3A8A;
+    --dark-gray: #6B7280;
     --green: #10B981;
+    --btn-hover: #221e71;
+    --light-gray-hover: #a2a5a8;
     --green-hover: #04573b;
     --home-btn: #4F46E5;
 }
@@ -13,7 +14,6 @@
 /* Header + Nav */
 header {
     height: 10vh;
-    border: 1px solid;
     display: flex;
     align-items: center;
     background-color: var(--light-gray);
@@ -80,4 +80,88 @@ nav .title:hover {
     border-bottom: 2px solid var(--btn-color);
     transition: 0.3s;
     cursor: pointer;
+}
+
+
+
+/* Landing Page */
+
+.hero-section {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(#E0E7FF, #F5F5F5);
+}
+
+.cta-container {
+    text-align: center;
+}
+
+.cta-container h1 {
+    font-size: 2.125rem;
+    color: var(--navy);
+}
+
+.cta-container p {
+    font-size: 1.5rem;
+    color: var(--dark-gray);
+    margin-bottom: 20px;
+}
+
+.cta-container .resume-btn {
+    background-color: var(--green);
+    padding: 8px 16px;
+    color: var(--light-gray);
+    text-decoration: none;
+    font-size: 1.5rem;
+    border-radius: 5px;
+}
+
+
+
+.resume-btn:hover {
+    animation: pulse 1.5s ease-in-out infinite;
+
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        background-color: var(--green)
+    }
+
+    50% {
+        transform: scale(1.1);
+        background-color: #18d999
+    }
+
+    100% {
+        transform: scale(1);
+        background-color: var(--green);
+    }
+}
+
+/* Footer */
+footer {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    background-color: var(--light-gray);
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+}
+
+.footer-container a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.footer-links a {
+    margin: 0 5px;
 }
