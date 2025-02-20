@@ -57,8 +57,7 @@ a {
     border: 1px solid var(--text-color);
 }
 
-/* BTN hover */
-
+/* Hover Styles */
 .login-btn:hover {
     background-color: var(--btn-hover);
     transition: 0.3s;
@@ -86,13 +85,25 @@ nav .title:hover {
 
 /* Landing Page */
 
+.main-section {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .hero-section {
+    background-image: linear-gradient(#E0E7FF, #F5F5F5);
+}
+
+/* .hero-section {
     height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
     background-image: linear-gradient(#E0E7FF, #F5F5F5);
-}
+} */
 
 .cta-container {
     text-align: center;
@@ -109,31 +120,46 @@ nav .title:hover {
     margin-bottom: 20px;
 }
 
-.cta-container .resume-btn {
-    background-color: var(--green);
+.cta-container .cta-btn {
     padding: 8px 16px;
-    color: var(--light-gray);
     text-decoration: none;
     font-size: 1.5rem;
     border-radius: 5px;
+    margin: 0 5px;
 }
 
+.resume-btn {
+    background-color: var(--green);
+    color: var(--light-gray);
+}
+
+.features-btn {
+    background-color: var(--btn-color);
+    color: var(--light-gray);
+}
 
 
 .resume-btn:hover {
     animation: pulse 1.5s ease-in-out infinite;
-
 }
+
+
+.features-btn:hover {
+    animation: animate 1.5s ease-in-out infinite;
+}
+
 
 @keyframes pulse {
     0% {
         transform: scale(1);
-        background-color: var(--green)
+        background-color: var(--green);
+
     }
 
     50% {
         transform: scale(1.1);
-        background-color: #18d999
+        background-color: #18d999;
+
     }
 
     100% {
@@ -141,6 +167,78 @@ nav .title:hover {
         background-color: var(--green);
     }
 }
+
+
+@keyframes animate {
+    0% {
+        transform: scale(1);
+        background-color: var(--btn-color);
+    }
+
+    50% {
+        transform: scale(1.1);
+        background-color: #30289c;
+
+    }
+
+    100% {
+        transform: scale(1);
+        background-color: var(--btn-color);
+
+    }
+}
+
+/* Features Page */
+
+.features-section {
+    background-color: var(--light-gray);
+}
+
+.features-section h1 {
+    margin-bottom: 10px
+}
+
+.features-container {
+    display: flex;
+    margin-top: 10px;
+    height: 50%;
+}
+
+.features-card {
+    border: 1px solid gray;
+    margin: 0 20px;
+    padding: 10px 30px;
+}
+
+/* .features-card {
+    border: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+    height: 50vh;
+    border-radius: 5px;
+    text-align: center;
+} */
+
+/* .features-card p {
+    margin-top: 40px;
+} */
+
+.cta-upload-btn {
+    background-color: var(--green);
+    color: var(--light-gray);
+    padding: 8px 16px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+}
+
+.cta-upload-btn:hover {
+    background-color: var(--green-hover);
+    transition: 0.3s;
+}
+
 
 /* Footer */
 footer {

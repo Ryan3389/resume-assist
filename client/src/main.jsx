@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
 
 import LandingPage from './pages/LandingPage.jsx'
+import FeaturesPage from './pages/FeaturesPage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <LandingPage />
+      },
+      {
+        path: '/features',
+        element: <FeaturesPage />
       }
     ]
   }
