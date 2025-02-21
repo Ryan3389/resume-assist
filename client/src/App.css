@@ -9,6 +9,7 @@
     --light-gray-hover: #a2a5a8;
     --green-hover: #04573b;
     --home-btn: #4F46E5;
+    --bg-gradient: linear-gradient(#E0E7FF, #F5F5F5);
 }
 
 /* Header + Nav */
@@ -91,19 +92,10 @@ nav .title:hover {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-image: var(--bg-gradient)
 }
 
-.hero-section {
-    background-image: linear-gradient(#E0E7FF, #F5F5F5);
-}
 
-/* .hero-section {
-    height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: linear-gradient(#E0E7FF, #F5F5F5);
-} */
 
 .cta-container {
     text-align: center;
@@ -195,35 +187,28 @@ nav .title:hover {
 }
 
 .features-section h1 {
-    margin-bottom: 10px
+    margin-bottom: 25px;
+    color: var(--navy);
+    font-size: 2.125rem;
 }
 
 .features-container {
     display: flex;
-    margin-top: 10px;
-    height: 50%;
+    width: 50%;
+    justify-content: space-between;
+    margin-top: 20px;
 }
 
-.features-card {
-    border: 1px solid gray;
-    margin: 0 20px;
-    padding: 10px 30px;
+.features-container .font-icon {
+    height: 50px;
+    margin: 0 50px;
 }
 
-/* .features-card {
-    border: 1px solid gray;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 10px;
-    height: 50vh;
-    border-radius: 5px;
-    text-align: center;
-} */
-
-/* .features-card p {
-    margin-top: 40px;
-} */
+.font-text {
+    color: var(--dark-gray);
+    font-weight: 600;
+    margin-top: 5px;
+}
 
 .cta-upload-btn {
     background-color: var(--green);
@@ -232,6 +217,7 @@ nav .title:hover {
     text-decoration: none;
     font-size: 1.2rem;
     border-radius: 5px;
+    margin-bottom: 25px;
 }
 
 .cta-upload-btn:hover {
