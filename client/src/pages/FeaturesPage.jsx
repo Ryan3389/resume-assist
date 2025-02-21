@@ -6,7 +6,7 @@ function FeaturesPage() {
     return (
         <section className="main-section features-section">
             <h1>Why Choose This Tool ?</h1>
-            <Link className='cta-upload-btn'>Upload your resume</Link>
+            <Link to='/resume' className='cta-upload-btn'>Upload your resume</Link>
             <div className="features-container">
                 <span className='icon-container'>
                     <FontAwesomeIcon icon={faUpload} color='#4F46E5' className='font-icon' />

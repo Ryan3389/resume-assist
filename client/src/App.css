@@ -182,10 +182,6 @@ nav .title:hover {
 
 /* Features Page */
 
-.features-section {
-    background-color: var(--light-gray);
-}
-
 .features-section h1 {
     margin-bottom: 25px;
     color: var(--navy);
@@ -224,6 +220,21 @@ nav .title:hover {
     background-color: var(--green-hover);
     transition: 0.3s;
 }
+
+
+/* Resume Page */
+
+form {
+    background-color: var(--light-gray);
+    height: 50%;
+    padding: 10px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 5px 10px;
+}
+
 
 
 /* Footer */

@@ -6,6 +6,7 @@ import './index.css'
 
 import LandingPage from './pages/LandingPage.jsx'
 import FeaturesPage from './pages/FeaturesPage.jsx'
+import ResumePage from './pages/ResumePage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: '/features',
         element: <FeaturesPage />
+      },
+      {
+        path: '/resume',
+        element: <ResumePage />
       }
     ]
   }
