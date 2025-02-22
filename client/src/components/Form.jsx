@@ -1,6 +1,6 @@
-function Form({ inputFields }) {
+function Form({ inputFields, change, fileChange, formSubmit }) {
     return (
-        <form>
+        <form onSubmit={formSubmit}>
             {inputFields.map((input, index) => (
                 <div className="input-div" key={index}>
                     <label htmlFor={input.name}>{input.label}</label>
@@ -10,7 +10,9 @@ function Form({ inputFields }) {
                         id={input.name}
                         aria-label={input.label}
                         placeholder={input.placeholder}
+                        onChange={input.type === 'file' ? fileChange : change}
                         className="form-input"
+                        required
                     />
                 </div>
             ))}
@@ -20,3 +22,27 @@ function Form({ inputFields }) {
 }
 
 export default Form
+// function Form({ inputFields, textChange, fileChange, formSubmit }) {
+//     return (
+//         <form onSubmit={formSubmit}>
+//             {inputFields.map((input, index) => (
+//                 <div className="input-div" key={index}>
+//                     <label htmlFor={input.name}>{input.label}</label>
+//                     <input
+//                         type={input.type}
+//                         name={input.name}
+//                         id={input.name}
+//                         aria-label={input.label}
+//                         placeholder={input.placeholder}
+//                         onChange={input.type === "file" ? fileChange : textChange}
+//                         className="form-input"
+//                         required
+//                     />
+//                 </div>
+//             ))}
+//             <input type="submit" />
+//         </form>
+//     )
+// }
+
+// export default Form
