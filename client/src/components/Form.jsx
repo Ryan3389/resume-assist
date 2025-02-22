@@ -14,6 +14,7 @@ function Form({ inputFields }) {
                     />
                 </div>
             ))}
+            <input type="submit" />
         </form>
     )
 }
