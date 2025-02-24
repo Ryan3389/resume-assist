@@ -235,6 +235,7 @@ form {
 
 .input-div label {
     font-size: 1.2rem;
+    color: var(--text-color);
 }
 
 .form-input {
@@ -287,4 +288,43 @@ footer {
 
 .footer-links a {
     margin: 0 5px;
+}
+
+
+/* Media Queries */
+
+@media only screen and (max-width: 600px) {
+    nav {
+        font-size: 0.8rem
+    }
+
+    .btn {
+        padding: 4px 8px;
+    }
+
+    .footer-container {
+        font-size: 0.8rem
+    }
+
+    form {
+        width: 50%;
+
+    }
+
+    .input-div label {
+        font-size: 0.9rem;
+    }
+
+    .form-input {
+        padding: 5px 10px;
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+    nav {
+        font-size: 1rem;
+    }
+
+
 }

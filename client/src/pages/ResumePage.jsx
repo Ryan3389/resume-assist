@@ -1,4 +1,3 @@
-
 import Form from "../components/Form"
 import { useState } from "react"
 function ResumePage() {
@@ -36,6 +35,8 @@ function ResumePage() {
         formData.append('jobTitle', formState.jobTitle)
         formData.append('file', fileState)
 
+        setPageLayout('loading')
+
         try {
             const response = await fetch('/api/user/submitResume', {
                 method: 'POST',
@@ -46,7 +47,11 @@ function ResumePage() {
                 throw new Error('Error submitting resume')
             }
 
+
             const data = await response.json()
+
+
+            setPageLayout('results')
             console.log(data.content)
         } catch (error) {
 
@@ -55,18 +60,10 @@ function ResumePage() {
 
     return (
         <section className="main-section">
-
-            <Form
-                inputFields={fields}
-                change={handleChange}
-                fileChange={handleFileChange}
-                formSubmit={handleFormSubmit}
-            />
-
+            {pageLayout === 'form' ? <Form inputFields={fields} change={handleChange} fileChange={handleFileChange} formSubmit={handleFormSubmit} /> : pageLayout === 'loading' ? <p>Loading...</p> : <p>Results are in</p>}
         </section>
     )
 }
 
 export default ResumePage
-
 
