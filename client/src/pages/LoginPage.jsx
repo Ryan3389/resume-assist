@@ -6,6 +6,8 @@ function LoginPage() {
         password: ""
     })
 
+    const [errorMessage, setErrorMessage] = useState(null)
+
     const fields = [
         { name: 'email', id: 'email', placeholder: "john.doe@example.com", label: 'Email', type: 'email' },
         { name: 'password', id: 'password', placeholder: '******', label: 'Password', type: 'password' }
@@ -33,21 +35,20 @@ function LoginPage() {
                 body: JSON.stringify(formState)
             })
 
-            if (!response.ok) {
-                throw new Error("Login Error")
-            }
-
             const data = await response.json()
+            const isAuth = data.auth
 
-            console.log(data)
-
-            const isUserAuth = data.authenticated
-
-            if (isUserAuth) {
-                window.location.assign('/resume')
-            } else {
-                window.location.assign('/')
+            if (!response.ok) {
+                console.error("Error Message: " + data.errorMessage)
+                setErrorMessage(data.errorMessage)
+                return
             }
+
+            if (!isAuth) {
+                window.location.assign("/")
+            }
+            window.location.assign('/resume')
+
         } catch (error) {
             console.error(error)
         }
@@ -58,6 +59,7 @@ function LoginPage() {
                 inputFields={fields}
                 change={handleChange}
                 formSubmit={handleFormSubmit}
+                errorMsg={errorMessage}
             />
         </section>
     )

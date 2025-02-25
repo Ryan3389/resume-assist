@@ -245,6 +245,12 @@ form {
 
 }
 
+/* Login form error text */
+.error-text {
+    text-align: center;
+    margin-bottom: 10px;
+    color: red;
+}
 
 input[type="submit"] {
     width: 40%;

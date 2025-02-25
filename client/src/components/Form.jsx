@@ -1,6 +1,8 @@
-function Form({ inputFields, change, fileChange, formSubmit }) {
+function Form({ inputFields, change, fileChange, formSubmit, errorMsg }) {
     return (
         <form onSubmit={formSubmit}>
+            {errorMsg && <p className="error-text">{errorMsg}</p>}
+            {/* <p className="error-text">{errorMsg && errorMsg}</p> */}
             {inputFields.map((input, index) => (
                 <div className="input-div" key={index}>
                     <label htmlFor={input.name}>{input.label}</label>

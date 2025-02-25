@@ -1,4 +1,5 @@
 const User = require('../models/User')
+
 const { signToken } = require('../utils/auth')
 
 async function createUser(req, res) {
@@ -13,11 +14,12 @@ async function createUser(req, res) {
             httpOnly: true
         })
 
-        if (token) {
-            res.status(200).json({ authenticated: true })
-        } else {
-            res.status(200).json({ authenticated: false })
-        }
+        res.status(200).json('Success')
+        // if (token) {
+        //     res.status(200).json({ authenticated: true })
+        // } else {
+        //     res.status(200).json({ authenticated: false })
+        // }
 
 
     } catch (error) {
@@ -29,17 +31,21 @@ async function createUser(req, res) {
 async function loginUser(req, res) {
     try {
         const { email, password } = req.body
+        let authenticated;
 
         const user = await User.findOne({ email })
 
         if (!user) {
-            return res.status(404).json('Incorrect Credentials')
+            authenticated = false
+            return res.status(404).json({ errorMessage: 'Incorrect Credentials', auth: authenticated })
         }
 
-        const isPwCorrect = user.isCorrectPassword(password)
 
-        if (!isPwCorrect) {
-            return res.status(404).json('Incorrect Credentials')
+        const passwordCheck = await user.isCorrectPassword(password)
+
+        if (!passwordCheck) {
+            authenticated = false
+            return res.status(404).json({ errorMessage: 'Incorrect Credentials', auth: authenticated })
         }
 
         const token = signToken(user)
@@ -49,7 +55,11 @@ async function loginUser(req, res) {
             httpOnly: true
         })
 
-        res.status(200).json({ authenticated: true })
+        authenticated = true
+
+        res.status(200).json({ auth: authenticated })
+
+
     } catch (error) {
         console.error(error)
         res.status(500).json(error)
