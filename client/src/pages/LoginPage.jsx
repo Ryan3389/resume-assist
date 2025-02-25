@@ -23,15 +23,31 @@ function LoginPage() {
     }
     const handleFormSubmit = async (e) => {
         e.preventDefault()
+
         try {
-            const response = await fetch("/api/user/createUser")
+            const response = await fetch("/api/user/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formState)
+            })
 
             if (!response.ok) {
                 throw new Error("Login Error")
             }
 
             const data = await response.json()
+
             console.log(data)
+
+            const isUserAuth = data.authenticated
+
+            if (isUserAuth) {
+                window.location.assign('/resume')
+            } else {
+                window.location.assign('/')
+            }
         } catch (error) {
             console.error(error)
         }
@@ -41,6 +57,7 @@ function LoginPage() {
             <Form
                 inputFields={fields}
                 change={handleChange}
+                formSubmit={handleFormSubmit}
             />
         </section>
     )

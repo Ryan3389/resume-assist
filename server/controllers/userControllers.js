@@ -8,8 +8,6 @@ async function createUser(req, res) {
 
         const token = signToken(user)
 
-
-
         res.cookie('userAuth', token, {
             secure: process.env.NODE_ENV === 'development',
             httpOnly: true
@@ -28,4 +26,35 @@ async function createUser(req, res) {
 }
 
 
-module.exports = { createUser }
+async function loginUser(req, res) {
+    try {
+        const { email, password } = req.body
+
+        const user = await User.findOne({ email })
+
+        if (!user) {
+            return res.status(404).json('Incorrect Credentials')
+        }
+
+        const isPwCorrect = user.isCorrectPassword(password)
+
+        if (!isPwCorrect) {
+            return res.status(404).json('Incorrect Credentials')
+        }
+
+        const token = signToken(user)
+
+        res.cookie('userAuth', token, {
+            secure: process.env.NODE_ENV === 'development',
+            httpOnly: true
+        })
+
+        res.status(200).json({ authenticated: true })
+    } catch (error) {
+        console.error(error)
+        res.status(500).json(error)
+    }
+}
+
+
+module.exports = { createUser, loginUser }
