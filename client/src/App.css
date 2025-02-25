@@ -226,7 +226,6 @@ nav .title:hover {
 
 form {
     background-color: var(--light-gray);
-    height: 60%;
     padding: 20px;
     border-radius: 10px;
     display: flex;

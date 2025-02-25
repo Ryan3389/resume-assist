@@ -7,7 +7,20 @@ async function createUser(req, res) {
         const user = await User.create({ firstName, lastName, email, password })
 
         const token = signToken(user)
-        return res.status(200).json({ createdUser: user, idToken: token })
+
+
+
+        res.cookie('userAuth', token, {
+            secure: process.env.NODE_ENV === 'development',
+            httpOnly: true
+        })
+
+        if (token) {
+            res.status(200).json({ authenticated: true })
+        } else {
+            res.status(200).json({ authenticated: false })
+        }
+
 
     } catch (error) {
         res.status(500).json(error)
