@@ -293,6 +293,64 @@ footer {
 
 /* Media Queries */
 
+
+@media only screen and (max-width: 992px) {
+    .cta-container {
+        width: 80%;
+    }
+
+    .cta-container h1 {
+        font-size: 1.9rem;
+    }
+
+    .cta-container p {
+        font-size: 1.3rem;
+    }
+
+    .cta-container .cta-btn {
+        font-size: 1.2rem;
+    }
+
+    .icon-container {
+        margin: 0 5px;
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+    nav {
+        font-size: 1rem;
+    }
+
+    .cta-container {
+        width: 80%;
+    }
+
+    .cta-container h1 {
+        font-size: 1.8rem;
+    }
+
+    .cta-container p {
+        font-size: 1.3rem;
+    }
+
+    .cta-container .cta-btn {
+        font-size: 1.2rem;
+    }
+
+
+    .features-container .font-icon {
+        height: 30px;
+    }
+
+    .font-text {
+        font-size: 0.8rem;
+        margin: 0 5px;
+    }
+
+}
+
+
 @media only screen and (max-width: 600px) {
     nav {
         font-size: 0.8rem
@@ -304,6 +362,18 @@ footer {
 
     .footer-container {
         font-size: 0.8rem
+    }
+
+    .cta-container h1 {
+        font-size: 1.5rem;
+    }
+
+    .cta-container p {
+        font-size: 1.2rem;
+    }
+
+    .cta-container .cta-btn {
+        font-size: 1rem;
     }
 
     form {
@@ -319,12 +389,18 @@ footer {
         padding: 5px 10px;
     }
 
-}
-
-@media only screen and (max-width: 768px) {
-    nav {
-        font-size: 1rem;
+    .features-container .font-icon {
+        height: 25px;
     }
+
+    .features-container .font-text {
+        font-size: 0.7rem;
+    }
+
+    .features-section h1 {
+        font-size: 1.8rem;
+    }
+
 
 
 }

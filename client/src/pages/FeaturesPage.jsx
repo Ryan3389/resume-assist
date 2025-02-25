@@ -14,7 +14,7 @@ function FeaturesPage() {
                 </span>
                 <span className='icon-container'>
                     <FontAwesomeIcon icon={faComments} color='#4F46E5' className='font-icon' />
-                    <p className='font-text'>Recieve AI generated Feedback</p>
+                    <p className='font-text'>AI generated Feedback</p>
                 </span>
                 <span className='icon-container'>
                     <FontAwesomeIcon icon={faCircleCheck} color='#4F46E5' className='font-icon' />
