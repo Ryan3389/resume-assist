@@ -15,13 +15,13 @@ const userSchema = new Schema({
     email: {
         type: String,
         required: true,
-        match: [/.+@.+\..+/, 'Must match an email address'],
+        match: [/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, 'Enter a valid email address'],
         trim: true,
     },
     password: {
         type: String,
         required: true,
-        minlength: 5,
+        minlength: [5, "Password must be at least 5 characters in length"],
     },
     resume: {
         type: String

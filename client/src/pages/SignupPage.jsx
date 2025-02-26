@@ -9,6 +9,8 @@ function SignupPage() {
         password: ""
     })
 
+    const [errorMessage, setErrorMessage] = useState(null)
+
     const fields = [
         { name: "firstName", id: 'firstName', placeholder: "John", label: "First Name", type: 'text' },
         { name: "lastName", id: 'lastName', placeholder: "Doe", label: "Last Name", type: 'text' },
@@ -25,11 +27,11 @@ function SignupPage() {
             [name]: value
         })
     }
-
     const handleFormSubmit = async (e) => {
         e.preventDefault()
+
         try {
-            const response = await fetch("/api/user/createUser", {
+            const response = await fetch('/api/user/createUser', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"
@@ -37,33 +39,26 @@ function SignupPage() {
                 body: JSON.stringify(formState)
             })
 
-            if (!response.ok) {
-                throw new Error("Signup Error");
-            }
-
             const data = await response.json()
 
-            console.log(data)
-            const isUserAuth = data.authenticated
-
-            if (isUserAuth) {
-                window.location.assign('/resume')
-            } else {
-                window.location.assign('/login')
+            if (!response.ok) {
+                setErrorMessage(data)
+                console.log('state test: ' + errorMessage)
             }
 
-
-
+            window.location.assign('/resume')
         } catch (error) {
-            console.error(error)
+
         }
     }
+
     return (
         <section className="main-section">
             <Form
                 inputFields={fields}
                 change={handleChange}
                 formSubmit={handleFormSubmit}
+                errorMsg={errorMessage}
             />
         </section>
     )

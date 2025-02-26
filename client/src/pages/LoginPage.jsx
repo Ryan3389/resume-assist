@@ -23,6 +23,7 @@ function LoginPage() {
 
 
     }
+
     const handleFormSubmit = async (e) => {
         e.preventDefault()
 
@@ -36,7 +37,8 @@ function LoginPage() {
             })
 
             const data = await response.json()
-            const isAuth = data.auth
+            console.log(data)
+
 
             if (!response.ok) {
                 console.error("Error Message: " + data.errorMessage)
@@ -44,9 +46,6 @@ function LoginPage() {
                 return
             }
 
-            if (!isAuth) {
-                window.location.assign("/")
-            }
             window.location.assign('/resume')
 
         } catch (error) {
