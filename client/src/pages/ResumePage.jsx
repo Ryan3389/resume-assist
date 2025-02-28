@@ -1,3 +1,4 @@
+import { use } from "react"
 import Form from "../components/Form"
 import { useState, useEffect } from "react"
 function ResumePage() {
@@ -8,18 +9,14 @@ function ResumePage() {
             try {
                 const response = await fetch("/api/user/auth")
                 const data = await response.json()
-
                 const isLoggedIn = data.isLoggedIn
-                const isVerified = data.isVerified
 
-
-                if (!isLoggedIn && isVerified) {
-                    window.location.assign("/login")
+                if (!isLoggedIn) {
+                    window.location.assign('/login')
                 }
-
-                // console.log(data)
             } catch (error) {
                 console.log(error)
+
             }
         }
         authorizeUser()

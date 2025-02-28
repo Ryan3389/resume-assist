@@ -37,7 +37,7 @@ async function loginUser(req, res) {
 
         if (!user) {
 
-            return res.status(404).json({ errorMessage: 'Incorrect Credentials' })
+            return res.status(404).json({ errorMessage: 'Incorrect Credentials', isLoggedIn: false })
         }
 
 
@@ -45,7 +45,7 @@ async function loginUser(req, res) {
 
         if (!passwordCheck) {
 
-            return res.status(404).json({ errorMessage: 'Incorrect Credentials' })
+            return res.status(404).json({ errorMessage: 'Incorrect Credentials', isLoggedIn: false })
         }
 
         const token = signToken(user)
@@ -57,7 +57,7 @@ async function loginUser(req, res) {
 
 
 
-        res.status(200).json('success')
+        res.status(200).json({ isLoggedIn: true })
 
 
     } catch (error) {
@@ -67,12 +67,15 @@ async function loginUser(req, res) {
 }
 
 async function userAuth(req, res) {
+    // Grab token from cookies
     const token = req.cookies.userAuth
 
+    //if no token (user is logged out) send error
     if (!token) {
-        res.status(401).json({ isLoggedIn: false, isVerified: false })
+        return res.status(401).json({ isLoggedIn: false, isVerified: false })
     }
 
+    // if token exists, verify
     try {
         const verified = jwt.verify(token, "secret")
         if (!verified) {
@@ -85,5 +88,20 @@ async function userAuth(req, res) {
 
 }
 
+async function logoutUser(req, res) {
+    const token = req.cookies.userAuth
 
-module.exports = { createUser, loginUser, userAuth }
+    if (!token) {
+        res.status(404).json({ message: 'User is already logged out' })
+    }
+
+    try {
+        res.clearCookie(token)
+        res.status(200).json({ message: "User logout successful" })
+    } catch (error) {
+        res.status(500).json(error)
+    }
+}
+
+
+module.exports = { createUser, loginUser, logoutUser, userAuth }

@@ -1,17 +1,19 @@
 //imports 
 const router = require('express').Router();
 const multer = require('multer');
-// const cookieParser = require("cookie-parser")
+
 //functions for controllers
-const { createUser, loginUser, userAuth } = require('../../controllers/userControllers');
+const { createUser, loginUser, userAuth, logoutUser } = require('../../controllers/userControllers');
 const { submitResume, getFile } = require("../../controllers/fileControllers");
 
-// router.use(cookieParser)
+
 
 //route for creating user
 router.route('/createUser').post(createUser)
 router.route('/login').post(loginUser)
+
 router.route('/auth').get(userAuth)
+router.route('/logout').get(logoutUser)
 
 // multer setup
 const storage = multer.memoryStorage()

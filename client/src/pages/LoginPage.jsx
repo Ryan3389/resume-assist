@@ -59,6 +59,8 @@ function LoginPage() {
                 change={handleChange}
                 formSubmit={handleFormSubmit}
                 errorMsg={errorMessage}
+                redirectMsg="Don't Have an Account ? Create Account"
+                redirectPath="/signup"
             />
         </section>
     )

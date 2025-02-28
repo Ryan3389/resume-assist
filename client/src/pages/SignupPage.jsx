@@ -59,6 +59,8 @@ function SignupPage() {
                 change={handleChange}
                 formSubmit={handleFormSubmit}
                 errorMsg={errorMessage}
+                redirectMsg="Already Have an Account ? Login"
+                redirectPath={'/login'}
             />
         </section>
     )

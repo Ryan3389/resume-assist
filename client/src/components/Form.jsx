@@ -1,4 +1,5 @@
-function Form({ inputFields, change, fileChange, formSubmit, errorMsg }) {
+import { Link } from 'react-router-dom'
+function Form({ inputFields, change, fileChange, formSubmit, errorMsg, redirectMsg, redirectPath }) {
     return (
         <form onSubmit={formSubmit}>
             {errorMsg && <p className="error-text">{errorMsg}</p>}
@@ -18,6 +19,7 @@ function Form({ inputFields, change, fileChange, formSubmit, errorMsg }) {
                     />
                 </div>
             ))}
+            <Link className='redirectMsg' to={redirectPath}>{redirectMsg}</Link>
             <input type="submit" />
         </form>
     )
