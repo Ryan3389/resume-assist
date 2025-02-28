@@ -1,7 +1,9 @@
 import Form from "../components/Form"
 import { useState } from "react"
+import { useAuth } from "../context/AuthContext"
 
 function SignupPage() {
+    const { setIsLoggedIn } = useAuth()
     const [formState, setFormState] = useState({
         firstName: "",
         lastName: "",
@@ -41,14 +43,14 @@ function SignupPage() {
 
             const data = await response.json()
 
-            if (!response.ok) {
+            if (data.isLoggedIn) {
+                setIsLoggedIn(true)
+                window.location.assign("/resume")
+            } else {
                 setErrorMessage(data)
-                console.log('state test: ' + errorMessage)
             }
-
-            window.location.assign('/resume')
         } catch (error) {
-
+            setErrorMessage("Something went wrong. Please try again")
         }
     }
 

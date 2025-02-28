@@ -1,6 +1,8 @@
 import Form from "../components/Form"
 import { useState } from "react"
+import { useAuth } from "../context/AuthContext"
 function LoginPage() {
+    const { setIsLoggedIn } = useAuth()
     const [formState, setFormState] = useState({
         email: "",
         password: ""
@@ -25,33 +27,27 @@ function LoginPage() {
     }
 
     const handleFormSubmit = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
         try {
             const response = await fetch("/api/user/login", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formState)
-            })
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formState),
+            });
+            const data = await response.json();
 
-            const data = await response.json()
-            console.log(data)
-
-
-            if (!response.ok) {
-                console.error("Error Message: " + data.errorMessage)
-                setErrorMessage(data.errorMessage)
-                return
+            if (data.isLoggedIn) {
+                setIsLoggedIn(true)
+                window.location.assign("/resume")
+            } else {
+                setErrorMessage(data);
             }
-
-            window.location.assign('/resume')
-
         } catch (error) {
-            console.error(error)
+            setErrorMessage("Something went wrong. Please try again.");
         }
-    }
+    };
+
     return (
         <section className="main-section">
             <Form
