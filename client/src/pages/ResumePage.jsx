@@ -1,26 +1,19 @@
-import { use } from "react"
+import { Link } from "react-router-dom"
 import Form from "../components/Form"
 import { useState, useEffect } from "react"
+import { useAuth } from "../context/AuthContext"
+import { useNavigate } from "react-router-dom"
 function ResumePage() {
+    const { isLoggedIn } = useAuth()
+    const navigate = useNavigate()
 
-    //FIX THIS NEXT: If logged out or not verified, redirect to login page
     useEffect(() => {
-        async function authorizeUser() {
-            try {
-                const response = await fetch("/api/user/auth")
-                const data = await response.json()
-                const isLoggedIn = data.isLoggedIn
-
-                if (!isLoggedIn) {
-                    window.location.assign('/login')
-                }
-            } catch (error) {
-                console.log(error)
-
-            }
+        if (isLoggedIn === false) {
+            navigate("/login")
         }
-        authorizeUser()
-    }, [])
+    }, [isLoggedIn, navigate])
+
+
     const [formState, setFormState] = useState({
         experience: "",
         jobTitle: "",
@@ -28,6 +21,8 @@ function ResumePage() {
     const [fileState, setFileState] = useState(null)
 
     const [pageLayout, setPageLayout] = useState("form")
+
+    const [results, setResults] = useState("")
 
     const fields = [
         { name: 'experience', type: 'text', label: 'Experience', placeholder: 'New Grad, Entry Level, Senior' },
@@ -37,6 +32,7 @@ function ResumePage() {
 
     const handleChange = (e) => {
         setFormState({
+            ...formState,
             experience: e.target.value,
             jobTitle: e.target.value
         })
@@ -70,18 +66,27 @@ function ResumePage() {
 
             const data = await response.json()
 
-
             setPageLayout('results')
-            console.log(data.content)
+            // console.log(data.content)
+            setResults(data.content)
         } catch (error) {
 
         }
     }
 
+    const handleClick = () => {
+        setPageLayout("form")
+    }
+
 
     return (
         <section className="main-section">
-            {pageLayout === 'form' ? <Form inputFields={fields} change={handleChange} fileChange={handleFileChange} formSubmit={handleFormSubmit} /> : pageLayout === 'loading' ? <p>Loading...</p> : <p>Results are in</p>}
+            {pageLayout === 'form' ? <Form inputFields={fields} change={handleChange} fileChange={handleFileChange} formSubmit={handleFormSubmit} /> : pageLayout === 'loading' ? <p>Loading...</p> :
+                <span className="results-container">
+                    <h1>Results</h1>
+                    <p>{results}</p>
+                    <Link onClick={handleClick} className="resume-refresh-btn">Add Another Resume</Link>
+                </span>}
         </section>
     )
 }

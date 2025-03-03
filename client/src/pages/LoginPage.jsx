@@ -1,8 +1,11 @@
 import Form from "../components/Form"
 import { useState } from "react"
 import { useAuth } from "../context/AuthContext"
+import { useNavigate } from "react-router-dom"
 function LoginPage() {
+    const navigate = useNavigate()
     const { setIsLoggedIn } = useAuth()
+
     const [formState, setFormState] = useState({
         email: "",
         password: ""
@@ -34,15 +37,14 @@ function LoginPage() {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formState),
+                credentials: "include"
             });
             const data = await response.json();
-
-            if (data.isLoggedIn) {
-                setIsLoggedIn(true)
-                window.location.assign("/resume")
-            } else {
-                setErrorMessage(data);
+            if (response.ok) {
+                setIsLoggedIn(data.isLoggedIn)
+                navigate("/resume")
             }
+
         } catch (error) {
             setErrorMessage("Something went wrong. Please try again.");
         }

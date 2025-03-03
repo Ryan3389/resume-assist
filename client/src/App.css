@@ -245,6 +245,34 @@ form {
 
 }
 
+.results-container {
+    width: 80%;
+    line-height: 1.5;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.results-container h1 {
+    text-align: center;
+    color: var(--text-color);
+    font-size: 2.125rem;
+}
+
+.resume-refresh-btn {
+    background-color: var(--green);
+    color: var(--light-gray);
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+}
+
+.resume-refresh-btn:hover {
+    background-color: var(--green-hover);
+    transition: 0.3s;
+}
+
 /* Login form error text */
 .error-text {
     text-align: center;

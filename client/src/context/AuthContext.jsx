@@ -9,19 +9,15 @@ export const useAuth = () => {
 
 
 export const AuthProvider = ({ children }) => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const [isLoggedIn, setIsLoggedIn] = useState(null)
 
     useEffect(() => {
         async function checkAuth() {
             try {
                 const response = await fetch("/api/user/auth")
                 const data = await response.json()
+                setIsLoggedIn(data.isLoggedIn)
 
-                if (data.isLoggedIn) {
-                    setIsLoggedIn(true)
-                } else {
-                    setIsLoggedIn(false)
-                }
             } catch (error) {
                 setIsLoggedIn(false)
             }
