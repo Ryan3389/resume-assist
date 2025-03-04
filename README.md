@@ -13,9 +13,9 @@ OpenAI API for resume feedback
 mammoth package to parse resume into readable (text) format
 
 ## Table of Contents
-[Technologies Used](#technologies-used)
-[Usage](#usage)
-[Contact](#contact)
+1. [Technologies Used](#technologies-used)
+2. [Usage](#usage)
+3. [Contact](#contact)
 
 ## Technologies Used
 Backend: 
