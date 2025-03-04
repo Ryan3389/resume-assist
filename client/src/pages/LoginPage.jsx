@@ -40,9 +40,12 @@ function LoginPage() {
                 credentials: "include"
             });
             const data = await response.json();
+            console.log(data)
             if (response.ok) {
                 setIsLoggedIn(data.isLoggedIn)
                 navigate("/resume")
+            } else {
+                setErrorMessage(data.errorMessage)
             }
 
         } catch (error) {
