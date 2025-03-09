@@ -126,59 +126,16 @@ nav .title:hover {
 }
 
 .features-btn {
-    background-color: var(--btn-color);
+    background-color: var(--green);
     color: var(--light-gray);
 }
 
-
-.resume-btn:hover {
-    animation: pulse 1.5s ease-in-out infinite;
-}
-
-
 .features-btn:hover {
-    animation: animate 1.5s ease-in-out infinite;
+    background-color: var(--green-hover);
+    transition: 0.3s;
 }
 
 
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        background-color: var(--green);
-
-    }
-
-    50% {
-        transform: scale(1.1);
-        background-color: #18d999;
-
-    }
-
-    100% {
-        transform: scale(1);
-        background-color: var(--green);
-    }
-}
-
-
-@keyframes animate {
-    0% {
-        transform: scale(1);
-        background-color: var(--btn-color);
-    }
-
-    50% {
-        transform: scale(1.1);
-        background-color: #30289c;
-
-    }
-
-    100% {
-        transform: scale(1);
-        background-color: var(--btn-color);
-
-    }
-}
 
 /* Features Page */
 
@@ -332,7 +289,16 @@ footer {
 
 
 /* Media Queries */
+@media only screen and (max-width: 1200px) {
+    .results-container p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
 
+    .results-container h1 {
+        font-size: 2rem;
+    }
+}
 
 @media only screen and (max-width: 992px) {
     .cta-container {
@@ -355,6 +321,18 @@ footer {
         margin: 0 5px;
     }
 
+    form a {
+        font-size: 0.8rem;
+    }
+
+    .results-container p {
+        font-size: 0.9rem;
+        line-height: 1.8;
+    }
+
+    .results-container h1 {
+        font-size: 1.8rem;
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -388,6 +366,9 @@ footer {
         margin: 0 5px;
     }
 
+    .results-container h1 {
+        font-size: 1.7rem;
+    }
 }
 
 
@@ -441,6 +422,17 @@ footer {
         font-size: 1.8rem;
     }
 
+    input[type="submit"] {
+        font-size: 0.8rem;
+        width: 50%;
+    }
 
+    .results-container p {
+        font-size: 0.7rem;
+    }
+
+    .results-container h1 {
+        font-size: 1.5rem;
+    }
 
 }
