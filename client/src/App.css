@@ -154,6 +154,7 @@ nav .title:hover {
 .features-container .font-icon {
     height: 50px;
     margin: 0 50px;
+    text-align: center;
 }
 
 .font-text {
@@ -310,7 +311,8 @@ footer {
     }
 
     .features-container p {
-        font-size: 0.8rem
+        font-size: 0.8rem;
+        text-align: center;
     }
 
     form .form-title {
@@ -451,6 +453,7 @@ footer {
     .features-section h1 {
         font-size: 1.7rem;
     }
+
 
     input[type="submit"] {
         font-size: 0.8rem;
