@@ -147,7 +147,6 @@ nav .title:hover {
 
 .features-container {
     display: flex;
-    width: 50%;
     justify-content: space-between;
     margin-top: 20px;
 }
@@ -179,6 +178,7 @@ nav .title:hover {
 }
 
 
+
 /* Resume Page */
 
 form {
@@ -187,6 +187,12 @@ form {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
+}
+
+form .form-title {
+    text-align: center;
+    padding-bottom: 10px;
+    color: var(--text-color);
 }
 
 .input-div label {
@@ -298,6 +304,18 @@ footer {
     .results-container h1 {
         font-size: 2rem;
     }
+
+    .features-container .font-icon {
+        height: 40px;
+    }
+
+    .features-container p {
+        font-size: 0.8rem
+    }
+
+    form .form-title {
+        font-size: 1.5rem;
+    }
 }
 
 @media only screen and (max-width: 992px) {
@@ -325,6 +343,10 @@ footer {
         font-size: 0.8rem;
     }
 
+    form .form-title {
+        font-size: 1.3rem;
+    }
+
     .results-container p {
         font-size: 0.9rem;
         line-height: 1.8;
@@ -332,6 +354,14 @@ footer {
 
     .results-container h1 {
         font-size: 1.8rem;
+    }
+
+    .features-container .font-icon {
+        height: 30px;
+    }
+
+    .features-container p {
+        font-size: 0.7rem
     }
 }
 
@@ -361,9 +391,8 @@ footer {
         height: 30px;
     }
 
-    .font-text {
-        font-size: 0.8rem;
-        margin: 0 5px;
+    .features-container p {
+        font-size: 0.6rem;
     }
 
     .results-container h1 {
@@ -402,6 +431,10 @@ footer {
 
     }
 
+    form .form-title {
+        font-size: 1.2rem
+    }
+
     .input-div label {
         font-size: 0.9rem;
     }
@@ -414,12 +447,9 @@ footer {
         height: 25px;
     }
 
-    .features-container .font-text {
-        font-size: 0.7rem;
-    }
 
     .features-section h1 {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
     }
 
     input[type="submit"] {

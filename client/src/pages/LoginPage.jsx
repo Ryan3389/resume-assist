@@ -62,6 +62,7 @@ function LoginPage() {
                 errorMsg={errorMessage}
                 redirectMsg="Don't Have an Account ? Create Account"
                 redirectPath="/signup"
+                title="Login"
             />
         </section>
     )

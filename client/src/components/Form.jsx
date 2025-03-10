@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
-function Form({ inputFields, change, fileChange, formSubmit, errorMsg, redirectMsg, redirectPath }) {
+function Form({ inputFields, change, fileChange, formSubmit, errorMsg, redirectMsg, redirectPath, title }) {
     return (
         <form onSubmit={formSubmit}>
             {errorMsg && <p className="error-text">{errorMsg}</p>}
-            {/* <p className="error-text">{errorMsg && errorMsg}</p> */}
+            <h2 className='form-title'>{title}</h2>
             {inputFields.map((input, index) => (
                 <div className="input-div" key={index}>
                     <label htmlFor={input.name}>{input.label}</label>
