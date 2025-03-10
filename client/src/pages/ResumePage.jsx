@@ -27,7 +27,7 @@ function ResumePage() {
     const fields = [
         { name: 'experience', type: 'text', label: 'Experience', placeholder: 'New Grad, Entry Level, Senior' },
         { name: 'jobTitle', type: 'text', label: 'Job Title', placeholder: "Software Engineer" },
-        { name: 'upload', type: 'file', label: "Upload Resume" }
+        { name: 'upload', type: 'file', label: "Upload Resume (Word doc)" }
     ]
 
     const handleChange = (e) => {
