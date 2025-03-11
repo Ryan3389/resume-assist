@@ -3,6 +3,8 @@ const User = require('../models/User')
 const { signToken } = require('../utils/auth')
 const jwt = require('jsonwebtoken')
 const cookieParser = require("cookie-parser")
+require('dotenv').config()
+const secret = process.env.SECRET
 
 
 async function createUser(req, res) {
@@ -76,7 +78,7 @@ async function userAuth(req, res) {
 
     // if token exists, verify
     try {
-        const verified = jwt.verify(token, "secret")
+        const verified = jwt.verify(token, secret)
         if (!verified) {
             return res.status(400).json({ isLoggedIn: false })
         }
