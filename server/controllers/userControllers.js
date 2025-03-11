@@ -1,4 +1,3 @@
-
 const User = require('../models/User')
 const { signToken } = require('../utils/auth')
 const jwt = require('jsonwebtoken')

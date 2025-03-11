@@ -1,9 +1,6 @@
-// const router = require('express').Router()
 const { MongoClient, GridFSBucket } = require("mongodb")
-// const multer = require('multer')
 const { Readable } = require('stream')
 const { v4: uuidv4 } = require("uuid")
-// const User = require('../models/User')
 const OpenAI = require("openai")
 const mammoth = require('mammoth');
 require('dotenv').config()
